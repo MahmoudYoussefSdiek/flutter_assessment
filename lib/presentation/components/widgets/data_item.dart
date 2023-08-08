@@ -40,7 +40,8 @@ class DataItem extends StatelessWidget {
                             ? child
                             : showLoadingIndicator(),
                     // fit: BoxFit.cover,
-                  )),
+                  ),
+              ),
             ),
             Text(
               ' Title : ${data.title}',

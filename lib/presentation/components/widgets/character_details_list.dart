@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_assessment/data_layer/model/articles.dart';
 import 'package:flutter_assessment/presentation/components/constants.dart';
 import 'package:flutter_assessment/presentation/components/widgets/details_item_list.dart';
+import 'package:flutter_assessment/presentation/components/widgets/show_loading_indicator.dart';
 
 
 Widget articleDetailsList(
@@ -14,6 +15,18 @@ Widget articleDetailsList(
     padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
     child: Column(
       children: [
+        Container(
+          width: double.infinity,
+          margin: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+          child: Image.network(
+            data.media?[0].mediaMetadata?[2].url ?? '',
+            loadingBuilder: (context, child, loadingProgress) =>
+            loadingProgress == null
+                ? child
+                : showLoadingIndicator(),
+            // fit: BoxFit.cover,
+          ),
+        ),
         detailsItemList(articleTitle, data.title),
         detailsItemList(articleAbstract, data.abstract),
         detailsItemList(articleSource, data.source),
