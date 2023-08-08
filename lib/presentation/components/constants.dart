@@ -21,6 +21,10 @@ const String articleNYTDSection = 'nytdsection';
 const String articleKeyWord = 'Key Word';
 const String articleByLine = 'Byline';
 const String articleType = 'Type';
+const String articleDesFacet = 'DesFacet';
+const String articleOrgFacet = 'OrgFacet';
+const String articlePerFacet = 'PerFacet';
+const String articleGeoFacet = 'GeoFacet';
 const String noInfo = 'No Information Available';
-const List<String> noInfoList = [noInfo];
+const List<String> noInfoList = [noInfo,];
 //_________________________________________________________________

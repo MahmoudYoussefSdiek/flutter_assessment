@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assessment/presentation/components/constants.dart';
 
-Widget detailsItemList(String title, String value) {
+
+Widget detailsItemList(String title, String? value) {
+  if(value!.isEmpty) {
+    value = noInfo;
+  }
   return Container(
     width: double.infinity,
     margin: const EdgeInsetsDirectional.fromSTEB(8, 4, 4, 8),

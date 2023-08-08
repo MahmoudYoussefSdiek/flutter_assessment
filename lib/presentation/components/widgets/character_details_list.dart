@@ -14,32 +14,37 @@ Widget articleDetailsList(
     padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
     child: Column(
       children: [
-        detailsItemList(articleTitle, data.title ?? noInfo),
-        detailsItemList(articleAbstract, data.abstract ?? noInfo),
-        detailsItemList(articleSource, data.source ?? noInfo),
-        detailsItemList(articlePublishedDate, data.publishedDate ?? noInfo),
-        detailsItemList(articleUpdated, data.updated ?? noInfo),
-        detailsItemList(articleSection, data.section ?? noInfo),
-        detailsItemList(articleSubsection, data.subsection ?? noInfo),
-        detailsItemList(articleNYTDSection, data.nytdsection ?? noInfo),
-        detailsItemList(articleKeyWord, ""),
-        builder(length: keyWordList.length, data: keyWordList),
-        detailsItemList(articleByLine, data.byline ?? noInfo),
-        detailsItemList(articleType, data.type ?? noInfo),
-        builder(length: data.desFacet?.length ?? noInfoList.length, data: data.desFacet ?? noInfoList),
-        builder(length: data.orgFacet?.length ?? noInfoList.length, data: data.orgFacet ?? noInfoList),
-        builder(length: data.perFacet?.length ?? noInfoList.length, data: data.perFacet ?? noInfoList),
-        builder(length: data.geoFacet?.length ?? noInfoList.length, data: data.geoFacet ?? noInfoList),
+        detailsItemList(articleTitle, data.title),
+        detailsItemList(articleAbstract, data.abstract),
+        detailsItemList(articleSource, data.source),
+        detailsItemList(articlePublishedDate, data.publishedDate),
+        detailsItemList(articleUpdated, data.updated),
+        detailsItemList(articleSection, data.section),
+        detailsItemList(articleSubsection, data.subsection),
+        detailsItemList(articleNYTDSection, data.nytdsection),
+        detailsItemList(articleKeyWord, " "),
+        builder(data: keyWordList),
+        detailsItemList(articleByLine, data.byline),
+        detailsItemList(articleType, data.type),
+        detailsItemList(articleDesFacet, " "),
+        builder(data: data.desFacet),
+        detailsItemList(articleOrgFacet, " "),
+        builder(data: data.orgFacet),
+        detailsItemList(articlePerFacet, " "),
+        builder(data: data.perFacet),
+        detailsItemList(articleGeoFacet, " "),
+        builder(data: data.geoFacet),
       ],
     ),
   );
 }
 
 Widget builder({
-  //1
-  required int length,
-  required List<String> data,
+  required List<String>? data,
 }) {
+  if(data!.isEmpty) {
+    data = noInfoList;
+  }
   return Container(
     width: double.infinity,
     margin: const EdgeInsetsDirectional.fromSTEB(8, 4, 4, 8),
@@ -51,16 +56,16 @@ Widget builder({
     child: GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,
-        childAspectRatio: 5 / 1,
+        childAspectRatio: 10 / 1,
         crossAxisSpacing: 1,
         mainAxisSpacing: 1,
       ),
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
       padding: EdgeInsets.zero,
-      itemCount: length,
+      itemCount: data.length,
       itemBuilder: (context, index) {
-        return Text(data[index], style: const TextStyle(color: Colors.white)); //2
+        return Text(data![index], style: const TextStyle(color: Colors.white));
       },
     ),
   );
