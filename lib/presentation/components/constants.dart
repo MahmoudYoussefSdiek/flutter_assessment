@@ -9,7 +9,7 @@ const String apiKey = '6WEuyAvGezOKeui9rgTLEYQJ2DWmGBnI';
 const String dataResults = 'results';
 //_______________________________________________________________
 
-//_________________________Character Key Word____________________
+//_________________________Article Key Word____________________
 const String articleTitle = 'Article Title';
 const String articleAbstract = 'Article Abstract';
 const String articleSource = 'Source';
