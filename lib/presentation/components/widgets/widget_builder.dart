@@ -11,7 +11,7 @@ Widget widgetBuilder({
   return GridView.builder(
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 1,
-      childAspectRatio: 2 / 3,
+      childAspectRatio: 3 / 3,
       crossAxisSpacing: 1,
       mainAxisSpacing: 1,
     ),
